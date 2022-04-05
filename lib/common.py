@@ -1,9 +1,14 @@
 import numpy as np
-import os,joblib
-import torch,random
+import os
+import joblib
+import torch
+import random
 import torch.nn as nn
-import cv2,imageio,PIL
-from libtiff import TIFFfile
+import cv2
+#import imageio
+import PIL
+# from libtiff import TIFFfile
+
 
 def readImg(img_path):
     """
@@ -13,17 +18,19 @@ def readImg(img_path):
     """
     img_format = img_path.split(".")[-1]
     try:
-        #在win下读取tif格式图像在转np的时候异常终止，暂时没找到合适的读取方式，Linux下直接用PIl读取无问题
-        img = PIL.Image.open(img_path) 
+        img = PIL.Image.open(img_path)
     except Exception as e:
-        ValueError("Reading failed, please check path of dataset,",img_path)
+        ValueError("Reading failed, please check path of dataset,", img_path)
     return img
+
 
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
+
 class AverageMeter(object):
     """Computes and stores the average and current value for calculate average loss"""
+
     def __init__(self):
         self.reset()
 
@@ -41,7 +48,9 @@ class AverageMeter(object):
         # print(self.val)
 
 # formulate a learning rate decay strategy
-def make_lr_schedule(lr_epoch,lr_value):
+
+
+def make_lr_schedule(lr_epoch, lr_value):
     lr_schedule = np.zeros(lr_epoch[-1])
     for l in range(len(lr_epoch)):
         if l == 0:
@@ -51,7 +60,9 @@ def make_lr_schedule(lr_epoch,lr_value):
     return lr_schedule
 
 # Save configuration information
-def save_args(args,save_path):
+
+
+def save_args(args, save_path):
     if not os.path.exists(save_path):
         os.makedirs('%s' % save_path)
 
@@ -62,23 +73,30 @@ def save_args(args,save_path):
         for arg in vars(args):
             print('%s: %s' % (arg, getattr(args, arg)), file=f)
     joblib.dump(args, '%s/args.pkl' % save_path)
-    print('\033[0;33m================config infomation has been saved=================\033[0m')
+    print(
+        '\033[0;33m================config infomation has been saved=================\033[0m')
 
 # Seed for repeatability
+
+
 def setpu_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     np.random.seed(seed)
-    torch.backends.cudnn.deterministic=True
+    torch.backends.cudnn.deterministic = True
     random.seed(seed)
 
 # Round off
-def dict_round(dic,num):
-    for key,value in dic.items():
-        dic[key] = round(value,num)
+
+
+def dict_round(dic, num):
+    for key, value in dic.items():
+        dic[key] = round(value, num)
     return dic
 
 # params initialization
+
+
 def weight_initV1(m):
     if isinstance(m, nn.Conv2d):
         nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
@@ -92,6 +110,7 @@ def weight_initV1(m):
         if m.bias is not None:
             nn.init.constant_(m.bias, 0)
 
+
 def weight_initV2(m):
     if isinstance(m, nn.Linear):
         nn.init.xavier_normal_(m.weight)
@@ -101,6 +120,7 @@ def weight_initV2(m):
     elif isinstance(m, nn.BatchNorm2d):
         nn.init.constant_(m.weight, 1)
         nn.init.constant_(m.bias, 0)
+
 
 def weight_initV3(net, init_type='normal', gain=0.02):
     def init_func(m):
@@ -115,7 +135,8 @@ def weight_initV3(net, init_type='normal', gain=0.02):
             elif init_type == 'orthogonal':
                 init.orthogonal_(m.weight.data, gain=gain)
             else:
-                raise NotImplementedError('initialization method [%s] is not implemented' % init_type)
+                raise NotImplementedError(
+                    'initialization method [%s] is not implemented' % init_type)
             if hasattr(m, 'bias') and m.bias is not None:
                 init.constant_(m.bias.data, 0.0)
         elif classname.find('BatchNorm2d') != -1:

@@ -1,0 +1,10 @@
+/dhc/groups/bp2021cl1/data/retina/HRF/images/01_dr.JPG /dhc/groups/bp2021cl1/data/retina/HRF/manual1/01_dr.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/01_dr_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/01_g.jpg /dhc/groups/bp2021cl1/data/retina/HRF/manual1/01_g.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/01_g_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/01_h.jpg /dhc/groups/bp2021cl1/data/retina/HRF/manual1/01_h.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/01_h_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/02_dr.JPG /dhc/groups/bp2021cl1/data/retina/HRF/manual1/02_dr.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/02_dr_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/02_g.jpg /dhc/groups/bp2021cl1/data/retina/HRF/manual1/02_g.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/02_g_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/02_h.jpg /dhc/groups/bp2021cl1/data/retina/HRF/manual1/02_h.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/02_h_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/03_dr.JPG /dhc/groups/bp2021cl1/data/retina/HRF/manual1/03_dr.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/03_dr_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/03_g.jpg /dhc/groups/bp2021cl1/data/retina/HRF/manual1/03_g.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/03_g_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/03_h.jpg /dhc/groups/bp2021cl1/data/retina/HRF/manual1/03_h.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/03_h_mask.tif
+/dhc/groups/bp2021cl1/data/retina/HRF/images/04_dr.JPG /dhc/groups/bp2021cl1/data/retina/HRF/manual1/04_dr.tif /dhc/groups/bp2021cl1/data/retina/HRF/mask/04_dr_mask.tif

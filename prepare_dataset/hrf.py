@@ -26,17 +26,17 @@ if __name__ == "__main__":
     data_root_path = "/dhc/groups/bp2021cl1/data/retina"
     # if not os.path.exists(data_root_path): raise ValueError("data path is not exist, Please make sure your data path is correct")
     # train
-    img = "CHASEDB1/images"
-    gt = "CHASEDB1/1st_label"
-    fov = "CHASEDB1/masks"
+    img = "HRF/images"
+    gt = "HRF/manual1"
+    fov = "HRF/mask"
     # ---------------save path-----------------------------------------
-    save_path = "./prepare_dataset/data_path_list/CHASEDB1"
+    save_path = "./prepare_dataset/data_path_list/HRF"
     if not os.path.exists(save_path):
         os.mkdir(save_path)
     # -----------------------------------------------------------------
     data_list = get_path_list(data_root_path, img, gt, fov)
     print('Numbers of all imgs:', len(data_list[0]))
-    test_range = (0, 7)
+    test_range = (0, 10)
     train_list = [data_list[i][:test_range[0]] + data_list[i]
                   [test_range[1]:] for i in range(len(data_list))]
     test_list = [data_list[i][test_range[0]:test_range[1]]

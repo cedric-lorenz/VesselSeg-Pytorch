@@ -1,5 +1,6 @@
 import argparse
 
+
 def parse_args():
     parser = argparse.ArgumentParser()
 
@@ -11,9 +12,9 @@ def parse_args():
 
     # data
     parser.add_argument('--train_data_path_list',
-                        default='./prepare_dataset/data_path_list/STARE/train.txt')
+                        default='./prepare_dataset/data_path_list/HRF/train.txt')
     parser.add_argument('--test_data_path_list',
-                        default='./prepare_dataset/data_path_list/STARE/test.txt')
+                        default='./prepare_dataset/data_path_list/HRF/test.txt')
     parser.add_argument('--train_patch_height', default=64)
     parser.add_argument('--train_patch_width', default=64)
     parser.add_argument('--N_patches', default=150000,
@@ -25,9 +26,9 @@ def parse_args():
     parser.add_argument('--sample_visualization', default=True,
                         help='Visualization of training samples')
     # model parameters
-    parser.add_argument('--in_channels', default=1,type=int,
+    parser.add_argument('--in_channels', default=1, type=int,
                         help='input channels of model')
-    parser.add_argument('--classes', default=2,type=int, 
+    parser.add_argument('--classes', default=2, type=int,
                         help='output channels of model')
 
     # training
@@ -43,7 +44,7 @@ def parse_args():
                         help='Validation on testset')
 
     # for pre_trained checkpoint
-    parser.add_argument('--start_epoch', default=1, 
+    parser.add_argument('--start_epoch', default=1,
                         help='Start epoch')
     parser.add_argument('--pre_trained', default=None,
                         help='(path of trained _model)load trained model to continue train')
